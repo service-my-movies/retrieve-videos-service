@@ -33,8 +33,12 @@ public class VideosService implements IVideosService {
 
 		VideosDTO listOfvideos = null;
 		
+		String url = BASE_URL+movie_id+"/videos"+API_KEY;
+		
+		LOGGER.info("@Get getAPI_Videos Service URL : " + url);
+		
 		try {
-			listOfvideos = restTemplate.getForObject(BASE_URL+movie_id+"/videos"+API_KEY, VideosDTO.class);
+			listOfvideos = restTemplate.getForObject(url, VideosDTO.class);
 		} catch (Exception e) {
 			LOGGER.error("Unexpected Error From Service: getAPI_Videos: " + e);
 		}
